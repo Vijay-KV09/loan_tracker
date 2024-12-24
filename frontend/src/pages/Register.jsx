@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import "./register.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const nav = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -42,7 +44,7 @@ const Register = () => {
       });
   
       setSuccess(response.data.message);
-      console.log("Response:", response.data);
+      nav("/dashboard");
     } catch (err) {
       setError(err.response?.data?.error || "Registration failed");
       console.error(err);
@@ -51,7 +53,17 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container w-[100vw]">
+    <div className="register-container w-[100vw] flex flex-col">
+      <div className="ml-10">
+      <button 
+      className="mb-10"
+      onClick={() => nav("/login")}
+      >Login</button>
+      <button 
+      className="ml-10"
+      onClick={() => nav("/")}
+      >Home</button>
+      </div>
       <form onSubmit={handleSubmit} className="register-form">
         <h2>Register</h2>
         {error && <p className="error-message">{error}</p>}
@@ -101,7 +113,7 @@ const Register = () => {
           />
         </div>
         <button type="submit" className="register-button">
-          Register
+          Submit
         </button>
       </form>
     </div>

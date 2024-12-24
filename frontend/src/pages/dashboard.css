@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #38b6ff;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar ul li {
+    cursor: pointer;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard-content {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .dashboard-main {
+    flex: 2;
+    padding-right: 20px;
+  }
+  
+  .info-banner {
+    background-color: #e0f7ff;
+    padding: 10px;
+    border: 1px solid #38b6ff;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  
+  .spending-info {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .card,
+  .account-card {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .dashboard-sidebar {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .dashboard-sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .dashboard-sidebar li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+  

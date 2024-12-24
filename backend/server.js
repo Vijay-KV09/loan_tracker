@@ -36,6 +36,7 @@ app.post("/login",async(req,res)=>{
 
     user.password === password && 
     res.status(200).json({ message: "Login successful", user: { name: user.name, email: user.email } });
+    
     throw "Login Unsuccessful";
   }catch(error){
     res.status(400).json({message:error});

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./login.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const nav = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +29,7 @@ const Login = () => {
           password: formData.password
         });
         setSuccess(response.data.message);
+        nav("/dashboard")
       }catch(error){
         setError(error.response?.data?.error || "Login failed");
         console.error(error);
@@ -35,7 +38,17 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container w-[100vw]">
+    <div className="login-container w-[100vw] flex flex-col">
+      <div className="mb-10">
+      <button 
+      className="ml-10"
+      onClick={() => nav("/register")}
+      >Register</button>
+      <button 
+      className="ml-10"
+      onClick={() => nav("/")}
+      >Home</button>
+      </div>
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
         {error && <p className="error-message">{error}</p>}
